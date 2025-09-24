@@ -40,7 +40,7 @@ export default function WebSearchToolPage() {
     >
       <div className="space-y-6">
         {/* Chat Interface */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden flex flex-col" style={{ height: 'calc(100vh - 400px)' }}>
           {/* Header */}
           <div className="border-b border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-900">
             <div className="flex items-center space-x-3">
@@ -66,10 +66,28 @@ export default function WebSearchToolPage() {
             )}
 
             {messages.length === 0 && (
-              <div className="text-center py-8">
-                <div className="text-4xl mb-4">🔍</div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">Search the web with AI</h3>
-                <p className="text-slate-600 dark:text-slate-400">Ask me anything and I'll search the web for current information with proper citations.</p>
+              <div className="flex flex-col items-center justify-center h-full text-center">
+                <div className="mb-6 sm:mb-8">
+                  <h2 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white mb-2">Hello there!</h2>
+                  <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">Ask me anything and I'll search the web for current information!</p>
+                </div>
+                
+                {/* Example Queries */}
+                <div className="w-full max-w-2xl">
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-4 text-sm">Try these examples</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {exampleQueries.map((query, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setInput(query)}
+                        disabled={status === "submitted" || status === "streaming"}
+                        className="text-left p-4 sm:p-6 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
+                      >
+                        {query}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
 
@@ -261,23 +279,6 @@ export default function WebSearchToolPage() {
                 </button>
               )}
             </form>
-          </div>
-        </div>
-
-        {/* Example Queries */}
-        <div className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
-          <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Try these examples</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {exampleQueries.map((query, index) => (
-              <button
-                key={index}
-                onClick={() => setInput(query)}
-                disabled={status === "submitted" || status === "streaming"}
-                className="text-left p-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {query}
-              </button>
-            ))}
           </div>
         </div>
 
