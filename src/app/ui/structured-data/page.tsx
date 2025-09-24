@@ -151,7 +151,7 @@ export default function StructuredDataPage() {
         {/* Feature Info */}
         <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 sm:p-6">
           <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">About this feature</h3>
-          <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-2">
+          <ul className="text-md text-blue-800 dark:text-blue-200 space-y-2">
             <li>• Structured output with predefined schemas</li>
             <li>• Consistent data formatting and validation</li>
             <li>• Type-safe responses with TypeScript</li>

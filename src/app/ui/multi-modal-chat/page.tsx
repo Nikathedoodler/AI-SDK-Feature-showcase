@@ -45,7 +45,7 @@ export default function MultiModalChatPage() {
     >
       <div className="space-y-6">
         {/* Chat Interface */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden flex flex-col" style={{ height: 'calc(100vh - 200px)' }}>
           {/* Header */}
           <div className="border-b border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-900">
             <div className="flex items-center space-x-3">
@@ -89,6 +89,19 @@ export default function MultiModalChatPage() {
                       {prompt}
                     </button>
                   ))}
+                </div>
+
+                {/* Available Features */}
+                <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
+                  <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">Available Features</h3>
+                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-2">
+                    <li>• Multi-modal file processing (images, PDFs, documents)</li>
+                    <li>• Real-time streaming responses with immediate feedback</li>
+                    <li>• File preview and attachment management</li>
+                    <li>• Visual feedback for different file types</li>
+                    <li>• Error handling and user guidance</li>
+                    <li>• Conversation context with file attachments</li>
+                  </ul>
                 </div>
               </div>
             )}
