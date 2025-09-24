@@ -120,14 +120,25 @@ export default function GenerateSpeechPage() {
             )}
 
             {!hasAudio && !isLoading && (
-              <div className="text-center py-12">
-                <div className="w-20 h-20 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                  </svg>
+              <div className="flex flex-col items-center justify-center h-full text-center">
+                <div className="mb-6 sm:mb-8">
+                  <h2 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white mb-2">Hello there!</h2>
+                  <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">Enter text and I'll convert it to speech for you!</p>
                 </div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">No audio generated yet</h3>
-                <p className="text-slate-600 dark:text-slate-400">Enter some text below to generate speech</p>
+                
+                {/* Suggested Prompts */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-2xl mb-8">
+                  {exampleTexts.map((text, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setText(text)}
+                      disabled={isLoading}
+                      className="p-4 sm:p-6 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-left text-sm disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
+                    >
+                      {text}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
 
@@ -224,35 +235,6 @@ export default function GenerateSpeechPage() {
               )}
             </button>
           </form>
-        </div>
-
-        {/* Example Texts */}
-        <div className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
-          <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Try these examples</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {exampleTexts.map((example, index) => (
-              <button
-                key={index}
-                onClick={() => setText(example)}
-                disabled={isLoading}
-                className="text-left p-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {example}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Feature Info */}
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
-          <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">About this feature</h3>
-          <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-2">
-            <li>• High-quality text-to-speech synthesis</li>
-            <li>• Real-time audio generation and playback</li>
-            <li>• Play/pause and replay controls</li>
-            <li>• Natural-sounding voice output</li>
-            <li>• Support for various text lengths</li>
-          </ul>
         </div>
       </div>
     </FeatureLayout>

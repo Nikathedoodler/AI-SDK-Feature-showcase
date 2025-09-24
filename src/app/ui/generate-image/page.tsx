@@ -82,10 +82,24 @@ export default function GenerateImagePage() {
                   height={1024}
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center text-slate-500 dark:text-slate-400">
-                    <div className="text-4xl mb-4">🎨</div>
-                    <p>Your generated image will appear here</p>
+                <div className="w-full h-full flex flex-col items-center justify-center text-center">
+                  <div className="mb-6 sm:mb-8">
+                    <h2 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white mb-2">Hello there!</h2>
+                    <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">Describe an image and I'll create it for you!</p>
+                  </div>
+                  
+                  {/* Suggested Prompts */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-2xl mb-8">
+                    {examplePrompts.map((prompt, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setPrompt(prompt)}
+                        disabled={isLoading}
+                        className="p-4 sm:p-6 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-left text-sm disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
+                      >
+                        {prompt}
+                      </button>
+                    ))}
                   </div>
                 </div>
               )}
@@ -140,35 +154,6 @@ export default function GenerateImagePage() {
               )}
             </button>
           </form>
-        </div>
-
-        {/* Example Prompts */}
-        <div className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
-          <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Try these examples</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {examplePrompts.map((example, index) => (
-              <button
-                key={index}
-                onClick={() => setPrompt(example)}
-                disabled={isLoading}
-                className="text-left p-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {example}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Feature Info */}
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
-          <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">About this feature</h3>
-          <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-2">
-            <li>• Powered by DALL-E for high-quality image generation</li>
-            <li>• Real-time generation with progress indicators</li>
-            <li>• High-resolution output (1024x1024 pixels)</li>
-            <li>• Error handling and user feedback</li>
-            <li>• Example prompts to get you started</li>
-          </ul>
         </div>
       </div>
     </FeatureLayout>
