@@ -92,7 +92,7 @@ export default function TranscribeAudioPage() {
     >
       <div className="space-y-6">
         {/* File Upload Area */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden flex flex-col" style={{ height: 'calc(100vh - 450px)' }}>
           <div className="flex-1 p-4 sm:p-6">
             {error && (
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mb-6">

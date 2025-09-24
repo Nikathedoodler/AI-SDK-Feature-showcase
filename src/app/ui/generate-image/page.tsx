@@ -60,7 +60,7 @@ export default function GenerateImagePage() {
     >
       <div className="space-y-6">
         {/* Image Display */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden flex flex-col" style={{ height: 'calc(100vh - 400px)' }}>
           <div className="p-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
             <h3 className="font-semibold text-slate-900 dark:text-white">Generated Image</h3>
           </div>
