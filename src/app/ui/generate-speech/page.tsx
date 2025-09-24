@@ -105,8 +105,8 @@ export default function GenerateSpeechPage() {
     >
       <div className="space-y-6">
         {/* Audio Player */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden">
-          <div className="p-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col">
+          <div className="flex-1 p-4 sm:p-6">
             {error && (
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mb-6">
                 <div className="flex items-center space-x-2">
@@ -191,12 +191,12 @@ export default function GenerateSpeechPage() {
         </div>
 
         {/* Input Form */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg p-6">
-          <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Enter text to convert to speech</h3>
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg p-4 sm:p-6">
+          <h3 className="font-semibold text-slate-900 dark:text-white mb-3 sm:mb-4">Enter text to convert to speech</h3>
+          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
             <div>
               <textarea
-                className="w-full bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                className="w-full bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
                 placeholder="Type or paste your text here..."
                 rows={4}
                 value={text}
@@ -207,7 +207,7 @@ export default function GenerateSpeechPage() {
             <button
               type="submit"
               disabled={isLoading || !text.trim()}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white px-6 py-3 rounded-xl transition-colors flex items-center justify-center space-x-2 disabled:cursor-not-allowed"
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition-colors flex items-center justify-center space-x-1 sm:space-x-2 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <>
@@ -229,7 +229,7 @@ export default function GenerateSpeechPage() {
         {/* Example Texts */}
         <div className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
           <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Try these examples</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {exampleTexts.map((example, index) => (
               <button
                 key={index}

@@ -40,7 +40,7 @@ export default function WebSearchToolPage() {
     >
       <div className="space-y-6">
         {/* Chat Interface */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col">
           {/* Header */}
           <div className="border-b border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-900">
             <div className="flex items-center space-x-3">
@@ -52,7 +52,7 @@ export default function WebSearchToolPage() {
           </div>
 
           {/* Messages Area */}
-          <div className="h-96 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
             {error && (
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3">
                 <div className="flex items-center space-x-2">
@@ -81,7 +81,7 @@ export default function WebSearchToolPage() {
               return (
                 <div key={message.id} className="space-y-3">
                   <div className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
-                    <div className={`max-w-xs lg:max-w-md px-4 py-3 rounded-2xl ${
+                    <div className={`max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg px-4 py-3 rounded-2xl ${
                       message.role === "user" 
                         ? "bg-blue-600 text-white" 
                         : "bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white"
@@ -228,10 +228,10 @@ export default function WebSearchToolPage() {
           </div>
 
           {/* Input Area */}
-          <div className="border-t border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-900">
-            <form onSubmit={handleSubmit} className="flex gap-3">
+          <div className="border-t border-slate-200 dark:border-slate-700 p-3 sm:p-4 bg-slate-50 dark:bg-slate-900">
+            <form onSubmit={handleSubmit} className="flex gap-2 sm:gap-3">
               <input
-                className="flex-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="flex-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 placeholder="Ask me anything to search the web..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -241,7 +241,7 @@ export default function WebSearchToolPage() {
                 <button
                   type="button"
                   onClick={stop}
-                  className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl transition-colors flex items-center space-x-2"
+                  className="bg-red-500 hover:bg-red-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition-colors flex items-center space-x-1 sm:space-x-2"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 6h12v12H6z" />
@@ -252,7 +252,7 @@ export default function WebSearchToolPage() {
                 <button
                   type="submit"
                   disabled={status !== "ready" || !input.trim()}
-                  className="bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white px-6 py-3 rounded-xl transition-colors flex items-center space-x-2 disabled:cursor-not-allowed"
+                  className="bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition-colors flex items-center space-x-1 sm:space-x-2 disabled:cursor-not-allowed"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -267,7 +267,7 @@ export default function WebSearchToolPage() {
         {/* Example Queries */}
         <div className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
           <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Try these examples</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {exampleQueries.map((query, index) => (
               <button
                 key={index}
