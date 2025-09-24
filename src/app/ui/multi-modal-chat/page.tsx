@@ -71,10 +71,25 @@ export default function MultiModalChatPage() {
             )}
 
             {messages.length === 0 && (
-              <div className="text-center py-8">
-                <div className="text-4xl mb-4">📎</div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">Upload files and chat</h3>
-                <p className="text-slate-600 dark:text-slate-400">Upload images, PDFs, or documents and ask me to analyze them. I can process multiple file types and provide streaming responses.</p>
+              <div className="flex flex-col items-center justify-center h-full text-center">
+                <div className="mb-6 sm:mb-8">
+                  <h2 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white mb-2">Hello there!</h2>
+                  <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">Upload files and chat with me. I can analyze images, PDFs, and documents!</p>
+                </div>
+                
+                {/* Suggested Prompts */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-2xl mb-8">
+                  {examplePrompts.map((prompt, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setInput(prompt)}
+                      disabled={status === "submitted" || status === "streaming"}
+                      className="p-4 sm:p-6 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-left text-sm disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
+                    >
+                      {prompt}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
 
@@ -239,35 +254,6 @@ export default function MultiModalChatPage() {
               </div>
             </form>
           </div>
-        </div>
-
-        {/* Example Prompts */}
-        <div className="bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6">
-          <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Try these examples</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {examplePrompts.map((prompt, index) => (
-              <button
-                key={index}
-                onClick={() => setInput(prompt)}
-                disabled={status === "submitted" || status === "streaming"}
-                className="text-left p-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {prompt}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Feature Info */}
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
-          <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">About this feature</h3>
-          <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-2">
-            <li>• Combines text completion and streaming responses</li>
-            <li>• Supports multiple file types (images, PDFs, documents)</li>
-            <li>• Real-time streaming for immediate feedback</li>
-            <li>• File processing and analysis capabilities</li>
-            <li>• Conversation context with file attachments</li>
-          </ul>
         </div>
       </div>
     </FeatureLayout>

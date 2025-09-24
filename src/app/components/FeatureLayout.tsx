@@ -277,7 +277,7 @@ export default function FeatureLayout({
         </div>
 
         {/* Feature Content */}
-        <main className="flex-1 pt-6 px-4 sm:px-6 lg:px-8 pb-20">
+        <main className="flex-1 px-4 sm:px-6 lg:px-8" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
           <div className="max-w-4xl mx-auto">
             {children}
           </div>
