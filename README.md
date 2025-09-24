@@ -4,14 +4,11 @@ A comprehensive demonstration of the Vercel AI SDK capabilities, showcasing mode
 
 ## 🚀 Features
 
-This showcase includes **14 different AI capabilities** organized by category:
+This showcase includes **12 different AI capabilities** organized by category:
 
 ### 💬 Conversation
 - **AI Chat** - Interactive conversation with streaming responses
-- **Multi-modal Chat** - Chat with images, documents, and multimedia content
-
-### ✍️ Text Generation
-- **Text Completion** - Generate and complete text with advanced language models
+- **Multi-modal Chat** - Chat with images, documents, and multimedia content (includes text completion and streaming)
 
 ### 🎨 Visual
 - **Image Generation** - Create stunning images from text descriptions using DALL-E
@@ -31,9 +28,6 @@ This showcase includes **14 different AI capabilities** organized by category:
 
 ### 📊 Data
 - **Structured Data** - Generate responses with predefined schemas and validation
-
-### 🌊 Real-time
-- **Streaming** - Real-time streaming responses for dynamic user experiences
 
 ### 🖥️ Browser
 - **Client-side Tools** - Browser-based tools and utilities for enhanced functionality

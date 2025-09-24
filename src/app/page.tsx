@@ -13,20 +13,12 @@ const features = [
     category: "Conversation"
   },
   {
-    id: "completion",
-    title: "Text Completion",
-    description: "Generate and complete text with advanced language models",
-    icon: "✍️",
-    path: "/ui/completion",
-    category: "Text Generation"
-  },
-  {
-    id: "stream",
-    title: "Streaming",
-    description: "Real-time streaming responses for dynamic user experiences",
-    icon: "🌊",
-    path: "/ui/stream",
-    category: "Real-time"
+    id: "multi-modal-chat",
+    title: "Multi-modal Chat",
+    description: "Chat with images, documents, and multimedia content with streaming responses",
+    icon: "📎",
+    path: "/ui/multi-modal-chat",
+    category: "Conversation"
   },
   {
     id: "generate-image",
@@ -67,14 +59,6 @@ const features = [
     icon: "🔧",
     path: "/ui/mcp-tools",
     category: "Integration"
-  },
-  {
-    id: "multi-modal-chat",
-    title: "Multi-modal Chat",
-    description: "Chat with images, documents, and multimedia content",
-    icon: "📎",
-    path: "/ui/multi-modal-chat",
-    category: "Conversation"
   },
   {
     id: "structured-data",
@@ -118,7 +102,7 @@ const features = [
   }
 ];
 
-const categories = ["All", "Conversation", "Text Generation", "Visual", "Audio", "Research", "Integration", "Data", "Real-time", "Browser"];
+const categories = ["All", "Conversation", "Visual", "Audio", "Research", "Integration", "Data", "Browser"];
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("All");
