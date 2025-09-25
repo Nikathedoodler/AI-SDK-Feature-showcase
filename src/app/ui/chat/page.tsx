@@ -21,7 +21,19 @@ const ChatPage = () => {
       icon="💬"
       category="Conversation"
     >
-      <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col">
+      {/* Available Features */}
+      <div className="mb-6 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
+        <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">Available Features</h3>
+        <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-2">
+          <li>• Real-time streaming responses for immediate feedback</li>
+          <li>• Proper error handling and user feedback</li>
+          <li>• Message history and conversation context</li>
+          <li>• Responsive design with modern UI patterns</li>
+          <li>• Built with Vercel AI SDK's useChat hook</li>
+        </ul>
+      </div>
+
+      <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden flex flex-col" style={{ height: 'calc(100vh - 400px)' }}>
         {/* Chat Header */}
         <div className="border-b border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-900">
           <div className="flex items-center space-x-3">
@@ -176,18 +188,6 @@ const ChatPage = () => {
             </button>
           </div>
         </div>
-      </div>
-
-      {/* Feature Info */}
-      <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
-        <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">About this feature</h3>
-        <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-2">
-          <li>• Real-time streaming responses for immediate feedback</li>
-          <li>• Proper error handling and user feedback</li>
-          <li>• Message history and conversation context</li>
-          <li>• Responsive design with modern UI patterns</li>
-          <li>• Built with Vercel AI SDK's useChat hook</li>
-        </ul>
       </div>
     </FeatureLayout>
   );
